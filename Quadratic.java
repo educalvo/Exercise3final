@@ -1,4 +1,4 @@
-package nl.ru.ai.calvodeboer.excercise3;
+package nl.ru.ai.calvodeboer.exercise3;
 
 import java.util.Scanner;
 
@@ -9,16 +9,18 @@ public class Quadratic {
 		System.out.println("Quadratic Equation Solver");
 		double a;
 		do {
-			System.out.println("Enter a:");
+			System.out.println("Enter a value for 'a' (cannot be zero):");
 			a = scanner.nextDouble();
-			if (a == 0) {
-				System.out.println("a cannot be zero.");
-			}
 		} while (a == 0);
-		System.out.println("Enter b:");
+		System.out.println("Enter a value for 'b':");
 		double b = scanner.nextDouble();
-		System.out.println("Enter c:");
+		System.out.println("Enter a value for 'c':");
 		double c = scanner.nextDouble();
+		scanner.close();
+		calculateRoots(a,b,c);
+	}
+
+	private static void calculateRoots(double a, double b, double c) {
 		if ((b*b - 4*a*c) == 0) {
 			System.out.println("One solution: " + (-b / (2*a)));
 		} else if ((b*b - 4*a*c) > 0) {
@@ -27,7 +29,6 @@ public class Quadratic {
 		} else {
 			System.out.println("No solutions.");
 		}
-		scanner.close();
 	}
 
 }
