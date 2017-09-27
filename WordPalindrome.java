@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class WordPalindrome {
 
 	public static void main(String[] args) {
+		PalindromeChecker();
+	}
+
+	private static void PalindromeChecker() {
 		boolean isPalindrome = false;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a word:");

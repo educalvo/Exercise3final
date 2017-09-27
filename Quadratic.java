@@ -5,8 +5,12 @@ import java.util.Scanner;
 public class Quadratic {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Quadratic Equation Solver");
+		quadraticSolver();
+	}
+
+	private static void quadraticSolver() {
+		Scanner scanner = new Scanner(System.in);
 		double a;
 		do {
 			System.out.println("Enter a value for 'a' (cannot be zero):");

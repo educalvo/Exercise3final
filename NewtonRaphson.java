@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class NewtonRaphson {
 
 	public static void main(String[] args) {
+		squareRootCalculator();
+	}
+
+	private static void squareRootCalculator() {
 		Scanner scanner=new Scanner(System.in);
 		scanner.useLocale(Locale.US); //Without this line, the program only accepts using commas for decimals (like 4,5 instead of 4.5)
 		double input;
@@ -17,16 +21,10 @@ public class NewtonRaphson {
 	}
 
 	private static void calculateRoot(double input) {
-		double approximationAccuracy = 10000;
-		double squareRoot = 1;
-		while (approximationAccuracy >= 0.001) {
-			squareRoot = squareRoot - (((squareRoot*squareRoot)-input)/(2*squareRoot)); //Calculate an approximation of the square root of the input
-			approximationAccuracy = squareRoot*squareRoot - input; //Calculate new accuracy
-			if (approximationAccuracy < 0) { //Absolute value of approximationAccuracy
-				approximationAccuracy = approximationAccuracy*-1;
-			}
+		double x = 1;
+		while (Math.abs(x*x - input) > 0.001) {
+			x = x - (((x*x)-input)/(2*x)); //Calculate an approximation of the square root of the input
 		}
-		System.out.println(squareRoot);
+		System.out.println(x);
 	}
-
 }
