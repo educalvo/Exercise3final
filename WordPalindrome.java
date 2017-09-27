@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class WordPalindrome {
 
 	public static void main(String[] args) {
-		PalindromeChecker();
+		palindromeChecker();
 	}
 
-	private static void PalindromeChecker() {
+	private static void palindromeChecker() {
 		boolean isPalindrome = false;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a word:");
@@ -23,6 +23,8 @@ public class WordPalindrome {
 			}
 		}
 		printResult(isPalindrome);
+		again();
+		scanner.close();
 	}
 
 	private static void printResult(boolean isPalindrome) {
@@ -32,4 +34,20 @@ public class WordPalindrome {
 			System.out.println("This word is NOT a palindrome.");
 		}
 	}
+	private static void again()
+	  {
+	    Scanner scanner=new Scanner(System.in);
+	    String again="n";
+	    System.out.print("Want to calculate again? y/n ");
+	    again=scanner.next();
+	    if(again.equals("y"))
+	    {
+	      palindromeChecker();
+	    } else if(!again.equals("n"))
+	    {
+	      System.out.println("Invalid entry, try again");
+	      again();
+	    }
+	    scanner.close();
+	  }
 }

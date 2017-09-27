@@ -1,22 +1,23 @@
 package nl.ru.ai.calvodeboer.exercise3;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class NewtonRaphson {
 
 	public static void main(String[] args) {
+		System.out.println("Square Root Calculator using the Newton Raphson Method");
 		squareRootCalculator();
 	}
 
 	private static void squareRootCalculator() {
 		Scanner scanner=new Scanner(System.in);
-		scanner.useLocale(Locale.US); //Without this line, the program only accepts using commas for decimals (like 4,5 instead of 4.5)
-		double input;
-		for (input = 0; input < 1; input = scanner.nextDouble()) { //Keep asking for input until the user enters an input that is greater than or equal to one.
-			System.out.println("Enter a number to find its square root. It cannot be less than one.");
+		double input = -1;
+		while (input < 0) { //Keep asking for input until the user enters an input that is greater than zero.
+			System.out.println("Enter a number to find its square root. It cannot be less than zero.");
+			input = scanner.nextDouble();
 		}
 		calculateRoot(input);
+		again();
 		scanner.close();
 	}
 
@@ -27,4 +28,20 @@ public class NewtonRaphson {
 		}
 		System.out.println(x);
 	}
+	private static void again()
+	  {
+	    Scanner scanner=new Scanner(System.in);
+	    String again="n";
+	    System.out.print("Want to calculate again? y/n ");
+	    again=scanner.next();
+	    if(again.equals("y"))
+	    {
+	      squareRootCalculator();
+	    } else if(!again.equals("n"))
+	    {
+	      System.out.println("Invalid entry, try again");
+	      again();
+	    }
+	    scanner.close();
+	  }
 }

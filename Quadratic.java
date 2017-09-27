@@ -22,6 +22,7 @@ public class Quadratic {
 		double c = scanner.nextDouble();
 		scanner.close();
 		calculateRoots(a,b,c);
+		again();
 	}
 
 	private static void calculateRoots(double a, double b, double c) {
@@ -34,5 +35,21 @@ public class Quadratic {
 			System.out.println("No solutions.");
 		}
 	}
+	private static void again()
+	  {
+	    Scanner scanner=new Scanner(System.in);
+	    String again="n";
+	    System.out.print("Want to calculate again? y/n ");
+	    again=scanner.next();
+	    if(again.equals("y"))
+	    {
+	      quadraticSolver();
+	    } else if(!again.equals("n"))
+	    {
+	      System.out.println("Invalid entry, try again");
+	      again();
+	    }
+	    scanner.close();
+	  }
 
 }
